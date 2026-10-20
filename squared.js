@@ -1056,7 +1056,7 @@ var conclusion = {
 			'<p> Multiple Arrows Task: ' + total_flanker + ' points</p>' +
 			'<p> Single Arrow Task: ' + total_simon + ' points</p>' +
 			'<p style="font-size:25px;">You are now finished with this set of tasks.</p>'
-			// '<p style="font-size:25px;"><b><a href="https://app.prolific.com/submissions/complete?cc=C1BR71DH">Click here to return to Prolific and complete the study</a></b>.</p>'
+		// '<p style="font-size:25px;"><b><a href="https://app.prolific.com/submissions/complete?cc=C1BR71DH">Click here to return to Prolific and complete the study</a></b>.</p>'
 	},
 	choices: "NO_KEYS"
 }
@@ -1079,21 +1079,21 @@ now_iso = now.toISOString()
 const save_data_stroop = {
 	type: jsPsychPipe,
 	action: "save",
-	experiment_id: "5IbiiwM4I33E",
+	experiment_id: "b2Hury6E20Sd",
 	filename: `stroop-${pid}-(${now_iso}).csv`,
 	data_string: () => jsPsych.data.get().filter({ task: "stroop" }).csv()
 };
 const save_data_flanker = {
 	type: jsPsychPipe,
 	action: "save",
-	experiment_id: "5IbiiwM4I33E",
+	experiment_id: "b2Hury6E20Sd",
 	filename: `flanker-${pid}-(${now_iso}).csv`,
 	data_string: () => jsPsych.data.get().filter({ task: "flanker" }).csv()
 };
 const save_data_simon = {
 	type: jsPsychPipe,
 	action: "save",
-	experiment_id: "5IbiiwM4I33E",
+	experiment_id: "b2Hury6E20Sd",
 	filename: `simon-${pid}-(${now_iso}).csv`,
 	data_string: () => jsPsych.data.get().filter({ task: "simon" }).csv()
 };
@@ -1103,11 +1103,11 @@ timeline.push(
 	welcome,
 	enter_fullscreen,
 	stroop_task,
-	// save_data_stroop,
+	save_data_stroop,
 	flanker_task,
-	// save_data_flanker,
+	save_data_flanker,
 	simon_task,
-	// save_data_simon,
+	save_data_simon,
 	exit_fullscreen,
 	conclusion
 );
