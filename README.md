@@ -2,8 +2,8 @@
 
 Squared tasks of executive attention, including the short versions of Stroop, Flanker, and Simon tasks as described and tested in Burgoyne et al. ([2023](https://doi.org/10.1037/xge0001408), [OSF](https://osf.io/7q598/)). This JavaScript implementation (using the [jsPsych](https://www.jspsych.org/) library) is a fork from Liceralde & Burgoyne ([2023](https://github.com/vrtliceralde/squared_jspsych)) under CC BY NC SA 4.0. 
 
-- Repo: <https://github.com/vuorre/attention-squared>
-- Live task: <https://vuorre.github.io/attention-squared>
+- Repo: <https://github.com/David-Vdr/attention-squared>
+- Live task: <https://david-vdr.github.io/attention-squared/>
 
 Descriptions in Burgoyne et al. are slightly different from the implementation in the program available on the Engle Lab website, VL decided to stick to Burgoyne et al. description because it gave participants feedback at the end and provided reason for why the correct response was correct
 
@@ -116,4 +116,4 @@ Original JavaScript implementation:
 
 This fork:
 
-Just link to the GitHub repo (<https://github.com/vuorre/attention-squared>).
+Just link to the GitHub repo (<https://github.com/David-Vdr/attention-squared>).
