@@ -84,6 +84,16 @@ jsPsych.data.addProperties({
 	session_id: session_id
 });
 
+// Completion code shown on the final screen, depending on the wave
+var completion_code;
+if (wave === "1") {
+	completion_code = "3817";
+} else if (wave === "2") {
+	completion_code = "6294";
+} else {
+	completion_code = "5432"; // fallback if wave is missing or unexpected
+}
+
 var welcome = {
 	type: jsPsychHtmlButtonResponse,
 	stimulus: "<p style='font-size:25px;'><b>Colors and Arrows Tasks</b></p>" +
@@ -1068,8 +1078,10 @@ var conclusion = {
 			'<p> Colors Task: ' + total_stroop + ' points</p>' +
 			'<p> Multiple Arrows Task: ' + total_flanker + ' points</p>' +
 			'<p> Single Arrow Task: ' + total_simon + ' points</p>' +
-			'<p style="font-size:25px;">You are now finished with this set of tasks.</p>'
-		// '<p style="font-size:25px;"><b><a href="https://app.prolific.com/submissions/complete?cc=C1BR71DH">Click here to return to Prolific and complete the study</a></b>.</p>'
+			'<p style="font-size:25px;">You are now finished with this set of tasks.</p>' +
+			'<p style="font-size:25px;">Please go back to the Qualtrics questionnaire and type in the following code to continue with the study:</p>' +
+			'<p style="font-size:48px; font-weight:bold; letter-spacing:8px;">' + completion_code + '</p>' +
+			'<p style="font-size:18px;">You can close this tab after entering the code in Qualtrics.</p>';
 	},
 	choices: "NO_KEYS"
 }
