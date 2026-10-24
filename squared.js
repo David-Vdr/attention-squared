@@ -67,8 +67,13 @@ var enter_fullscreen = {
 
 // Participant id
 var pid = jsPsych.data.getURLVariable("pid");
+
+// Session start time, recorded when the page loads (Coordinated Universal Time)
+var session_start = new Date().toISOString();
+
 jsPsych.data.addProperties({
-	pid: pid
+	pid: pid,
+	session_start: session_start
 });
 
 var welcome = {
