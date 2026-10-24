@@ -68,6 +68,9 @@ var enter_fullscreen = {
 // Participant id
 var pid = jsPsych.data.getURLVariable("pid");
 
+// Measurement wave (1 = T1 questionnaire, 2 = T2 questionnaire)
+var wave = jsPsych.data.getURLVariable("wave");
+
 // Session start time, recorded when the page loads (Coordinated Universal Time)
 var session_start = new Date().toISOString();
 
@@ -76,6 +79,7 @@ var session_id = crypto.randomUUID();
 
 jsPsych.data.addProperties({
 	pid: pid,
+	wave: wave,
 	session_start: session_start,
 	session_id: session_id
 });
@@ -1087,21 +1091,21 @@ const save_data_stroop = {
 	type: jsPsychPipe,
 	action: "save",
 	experiment_id: "b2Hury6E20Sd",
-	filename: `stroop-${pid}-${session_id}.csv`,
+	filename: `stroop-${pid}-w${wave}-${session_id}.csv`,
 	data_string: () => jsPsych.data.get().filter({ task: "stroop" }).csv()
 };
 const save_data_flanker = {
 	type: jsPsychPipe,
 	action: "save",
 	experiment_id: "b2Hury6E20Sd",
-	filename: `flanker-${pid}-${session_id}.csv`,
+	filename: `flanker-${pid}-w${wave}-${session_id}.csv`,
 	data_string: () => jsPsych.data.get().filter({ task: "flanker" }).csv()
 };
 const save_data_simon = {
 	type: jsPsychPipe,
 	action: "save",
 	experiment_id: "b2Hury6E20Sd",
-	filename: `simon-${pid}-${session_id}.csv`,
+	filename: `simon-${pid}-w${wave}-${session_id}.csv`,
 	data_string: () => jsPsych.data.get().filter({ task: "simon" }).csv()
 };
 
