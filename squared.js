@@ -71,9 +71,13 @@ var pid = jsPsych.data.getURLVariable("pid");
 // Session start time, recorded when the page loads (Coordinated Universal Time)
 var session_start = new Date().toISOString();
 
+// Unique identifier for this session, shared by all three saved files
+var session_id = crypto.randomUUID();
+
 jsPsych.data.addProperties({
 	pid: pid,
-	session_start: session_start
+	session_start: session_start,
+	session_id: session_id
 });
 
 var welcome = {
@@ -1078,28 +1082,26 @@ var preload = {
 	images: [al, ar, ml_fr, mr_fl, rarr, larr]
 }
 
-const now = new Date()
-now_iso = now.toISOString()
 
 const save_data_stroop = {
 	type: jsPsychPipe,
 	action: "save",
 	experiment_id: "b2Hury6E20Sd",
-	filename: `stroop-${pid}-(${now_iso}).csv`,
+	filename: `stroop-${pid}-${session_id}.csv`,
 	data_string: () => jsPsych.data.get().filter({ task: "stroop" }).csv()
 };
 const save_data_flanker = {
 	type: jsPsychPipe,
 	action: "save",
 	experiment_id: "b2Hury6E20Sd",
-	filename: `flanker-${pid}-(${now_iso}).csv`,
+	filename: `flanker-${pid}-${session_id}.csv`,
 	data_string: () => jsPsych.data.get().filter({ task: "flanker" }).csv()
 };
 const save_data_simon = {
 	type: jsPsychPipe,
 	action: "save",
 	experiment_id: "b2Hury6E20Sd",
-	filename: `simon-${pid}-(${now_iso}).csv`,
+	filename: `simon-${pid}-${session_id}.csv`,
 	data_string: () => jsPsych.data.get().filter({ task: "simon" }).csv()
 };
 
